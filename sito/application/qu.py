@@ -115,6 +115,22 @@ def top_rebounds(client):
     return query
     
 
+def find_players_from_team(client, team):
+    col_players = client["BDII-NBAstats"]["Players"]
+    col_teams = client["BDII-NBAstats"]["Teams"]
+    
+    query = col_teams.find( { "abbreviation" : team["abbreviation"] } )
+
+    players_list = list()
+    
+    for res in query:
+        print(res)
+        for playerID in res["Players"]:
+            for player_from_team in col_players.find( { "_id" : playerID } ):
+                players_list.append(player_from_team)
+    
+
+    return players_list
 
 
 if __name__ == "__main__":
@@ -155,6 +171,10 @@ if __name__ == "__main__":
     #for res in top_assists(client):
     #    print(res)
     
-    for res in top_rebounds(client):
-        print(res)
+    #for res in top_rebounds(client):
+    #    print(res)
     
+    cerca = { "abbreviation" : "GSW" }
+    
+    for res in find_players_from_team(client, cerca):
+        print(res)
