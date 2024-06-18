@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from pymongo import MongoClient
 import application.qu as qu
 import math
@@ -191,5 +191,15 @@ def classificaOvest():
     
 @app.route('/cercaSquadra')
 def cercaSquadra():
-    return render_template()
+   
+    return render_template('cercaSquadra.html')
 
+@app.route('/cercaSquadra2',methods=['POST'])
+def cercaSquadra2():
+    team=None
+    if request.method == 'POST':
+        selected_team = request.form['team']
+        print(selected_team)
+        team = teams_collection.find({"abbreviation": selected_team})
+        
+    return render_template('cercaSquadra.html',team=team)

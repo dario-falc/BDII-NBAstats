@@ -249,3 +249,16 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.dropdown-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/*
+non so se si deve mettere l'id del form in cui è posizionato
+*/
+select {
+    font-size: 18px;
+    padding: 5px;
+}
