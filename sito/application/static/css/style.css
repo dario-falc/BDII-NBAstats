@@ -1,0 +1,251 @@
+html{
+    height: 100%;
+    margin:0;
+    padding:0;
+
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100%;
+    margin:0;
+    padding:0;
+    display: flex;
+    flex-direction: column;
+    background-image: url('../img/sfondo.jpeg');
+    
+    background-size: cover; /* Copre l'intero schermo */
+    background-repeat: no-repeat; /* Evita la ripetizione dell'immagine */
+    background-position: center; /* Centra l'immagine */
+    background-attachment: fixed; /* Immagine fissa durante lo scroll */
+}
+
+/* TUTTO NAVBAR*/
+header {
+    background-color: #1D428A;
+    color: white;
+    
+    
+    display: flex;
+    
+    text-align: center;
+    
+    
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+header h1 {
+    
+    margin: 0;
+    font-size: 36px;
+    text-align: right;
+}
+header .logo {
+    height: 50px;
+    width: 50px;
+    margin-right: 20px;
+    
+}
+
+header nav {
+    background: #444;
+    display: flex;
+   
+    width: 100%;
+  
+}
+    
+header nav ul {
+    justify-self: auto;
+    align-self: auto;
+    vertical-align: middle;
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+/*fino a qua*/
+/* pulsante  index.html*/
+.parent-container {
+    height: 300px; /* Altezza del contenitore principale per dimostrazione */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.text-content {
+    margin-bottom: 20px;
+}
+
+.button-container {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 50px;
+}
+.nav-btn {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.nav-btn:hover {
+    background-color: #45a049;
+}
+
+/*FINO A QUA*/
+/*SCRITTA INDEX.HTML*/
+.selettore {
+    color: white; /* Colore del testo */
+    text-shadow:
+        -1px -1px 0 #dd8913,  
+        1px -1px 0 #dd8913,
+        -1px 1px 0 #dd8913,
+        1px 1px 0 #dd8913; /* Imposta quattro ombre per creare l'effetto di contorno */
+}
+
+.contorno {
+    font-size: 24px;
+    text-shadow:
+        -1px -1px 0 #dd8913,  
+        1px -1px 0 #dd8913,
+        -1px 1px 0 #dd8913,
+        1px 1px 0 #dd8913;
+}
+
+.centered-section {
+    color: rgb(255, 255, 0);
+    display: flex;
+    justify-content:left;
+    align-items: left;
+    height: 50vh;
+    text-align: center;
+    flex-direction: column;
+    font-weight: bold;
+    text-shadow: #ddd;
+    
+}
+.centered-section h1 {
+    font-size: 3em; /* Increase font size for h1 */
+    margin: 0.5em 0;
+}
+.centered-section p {
+    font-size: 1.5em; /* Increase font size for paragraph */
+}
+/*FINO A QUA*/
+main {
+    flex: 1;
+    padding: 20px;
+   
+}
+
+.statistics, .news {
+    margin-bottom: 20px;
+}
+
+.statistics h2{
+    text-align: center;  /* Centra il testo */
+    font-size: 48px;     /* Ingrandisce la dimensione del testo */
+    color: greenyellow; 
+}
+.statistics table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.statistics table, .statistics th, .statistics td {
+    border: 1px solid #ddd;
+}
+
+.statistics th, .statistics td {
+    padding: 8px;
+    text-align: left;
+    background-color: white;
+}
+
+.statistics th {
+    background-color: #1D428A;
+    color: white;
+}
+
+.classifica table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.classifica th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+.classifica th:first-child, td:first-child {
+    width: 30%; /* La prima colonna sarà il 30% della larghezza totale */
+}
+
+.classifica th:nth-child(n+2), td:nth-child(n+2) {
+    width: 14%; /* Le altre cinque colonne condivideranno il restante 70% */
+}
+
+.classifica thead {
+    background-color: #f2f2f2; /* Colore di sfondo per l'intestazione */
+}
+#top-player h2{
+    text-align: center;  
+    font-size: 48px;     
+    color: greenyellow; 
+
+} 
+#top-players table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    background-color: #444;
+}
+
+#top-playersth, td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+#top-playersthead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+footer {
+    background: #444;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}

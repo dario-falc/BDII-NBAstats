@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Home - NBA Statistics{% endblock %}
+
+{% block content %}
+<section class="classifica">
+    <table>
+        <thead>
+            <tr>
+                <th>Nome Squadra</th>
+                <th>Vittorie</th>
+                <th>Sconfitte</th>
+                <th>% Vittorie</th>
+                <th>Casa</th>
+                <th>Transf</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{ table_rows|safe }}  <!-- dato da passare sta in init-->
+           
+        </tbody>
+    </table>
+</section>
+{% endblock %}

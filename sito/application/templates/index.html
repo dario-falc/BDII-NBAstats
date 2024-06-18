@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Home - NBA Statistics{% endblock %}
+
+{% block content %}
+    <div class="contorno">      
+        <section class="centered-section">
+            <h1>HOMEPAGE</h1>
+            <div class="content">
+                <h1>Welcome to the NBA Statistics Site</h1 class=selettore>
+                <p>Explore the statistics of your favorite NBA players and teams.</p class=selettore>
+               
+            </div>
+        </section>
+    </div> 
+    <div class="parent-container">
+        <div class="text-content">
+            <!-- se vogliamo scrivere qualcosa sopra i bottoni va qua-->>
+        </div>
+            <div class="button-container">
+                <button class="nav-btn" onclick="location.href='{{ url_for('classificaEst') }}'">Campionato di Est</button>
+                <button class="nav-btn" onclick="location.href='{{ url_for('classificaOvest') }}'">Campionato di Ovest</button>
+                <button class="nav-btn" onclick="location.href='page3.html'">Cerca Squadra</button>
+                <button class="nav-btn" onclick="location.href='{{url_for('listPlayer')}}'">Lista Giocatori</button>
+            </div>
+    </div>
+{% endblock %}
