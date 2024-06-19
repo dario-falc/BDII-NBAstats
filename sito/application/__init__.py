@@ -26,9 +26,35 @@ def index():
 
 @app.route('/topPlayer') #top player
 def topPlayer():
-
-    
-    return render_template('topPlayers.html')
+    topPoint=list(qu.top_scorer(client))
+    topAssists=list(qu.top_assists(client))
+    top3Points=list(qu.top_3_pointers(client))
+    topRebound=list(qu.top_rebounds(client))
+    table_rows_point=""
+    table_rows_assist=""
+    table_rows_3point=""
+    table_rows_rebound=""
+    for item in topPoint:    
+            table_rows_point += "<tr>\n"
+            for key, value in item.items():
+                table_rows_point += f"    <td> {value} </td>\n"
+            table_rows_point += "</tr>\n"
+    for item in topAssists:    
+            table_rows_assist += "<tr>\n"
+            for key, value in item.items():
+                table_rows_assist += f"    <td> {value} </td>\n"
+            table_rows_assist += "</tr>\n"
+    for item in top3Points:    
+            table_rows_3point += "<tr>\n"
+            for key, value in item.items():
+                table_rows_3point += f"    <td> {value} </td>\n"
+            table_rows_3point += "</tr>\n"
+    for item in topRebound:    
+            table_rows_rebound += "<tr>\n"
+            for key, value in item.items():
+                table_rows_rebound += f"    <td> {value} </td>\n"
+            table_rows_rebound += "</tr>\n"
+    return render_template('topPlayers.html',table_rows_point=table_rows_point,table_rows_assist=table_rows_assist,table_rows_3point=table_rows_3point,table_rows_rebound=table_rows_rebound)
 
 
 @app.route('/listPlayer') #list players
