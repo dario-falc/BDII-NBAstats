@@ -70,8 +70,8 @@
                             <th>Nome</th>
                             <th>Posizione</th>
                             <th>Età</th>
-                            <th>Numero Maglia</th>
-                            <th>Minuti Giocati</th>
+                            <th>Partite giocate</th>
+                            <th>Minuti giocati</th>
                             <th>Punti</th>
                             <th>Rimbalzi</th>
                             <th>Assist</th>
@@ -81,21 +81,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Dato 1.1</td>
-                            <td>Dato 1.2</td>
-                            <td>Dato 1.3</td>
-                        </tr>
-                        <tr>
-                            <td>Dato 2.1</td>
-                            <td>Dato 2.2</td>
-                            <td>Dato 2.3</td>
-                        </tr>
-                        <tr>
-                            <td>Dato 3.1</td>
-                            <td>Dato 3.2</td>
-                            <td>Dato 3.3</td>
-                        </tr>
+                        {{ table_rows|safe }}
                     </tbody>
                 </table>
             </div>

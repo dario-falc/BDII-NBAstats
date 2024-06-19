@@ -124,7 +124,7 @@ def find_players_from_team(client, team):
     players_list = list()
     
     for res in query:
-        print(res)
+        #print(res)
         for playerID in res["Players"]:
             for player_from_team in col_players.find( { "_id" : playerID } ):
                 players_list.append(player_from_team)

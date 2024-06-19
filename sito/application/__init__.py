@@ -168,12 +168,12 @@ def classificaOvest():
      
         #print(singolo)
         tutto["valori"].append(singolo)
-   
+    '''
     for item in tutto['valori']:
         for key, value in item.items():
             print(f'Chiave: {key}, Valore: {value}')
         print()
-    
+    '''
 
     
     # Ordiniamo la lista di dizionari dentro la chiave 'valori' in base a 'VittorieTot'
@@ -199,11 +199,38 @@ def cercaSquadra2():
     team=None
     if request.method == 'POST':
         selected_team = request.form['team']
-        print(selected_team)
+        
         team = teams_collection.find({"abbreviation": selected_team})
         
         players=list(qu.find_players_from_team(client,team[0]))
+        table_rows = ""
+        giocatori=list();
         for p in players:
-                print(p)
-        
-    return render_template('cercaSquadra.html',team=team)
+            singolo = {"Nome": None, "Posizione": None, "Eta": None, "PartGioc": None, "MinGioc": None, "Punti": None, "Rimbalzi": None, "Assist": None, "Stoppate": None, "Perc3": None, "Perc2": None } 
+            singolo["Nome"]=p["Name"]
+            singolo["Posizione"]=p["Pos"]
+            singolo["Eta"]=p["Age"]
+            singolo["PartGioc"]=p["G"]
+            singolo["MinGioc"]=p["MP"]
+            singolo["Punti"]=p["PTS"]
+            singolo["Rimbalzi"]=p["TRB"]
+            singolo["Assist"]=p["AST"]
+            singolo["Stoppate"]=p["BLK"]
+            singolo["Perc3"]=p["3P%"]
+            singolo["Perc2"]=p["2P%"]
+            giocatori.append(singolo)
+        #print(giocatori)
+        giocatori = sorted(giocatori, key=lambda x: x["Posizione"])
+        ''' table_rows += "<tr>\n"
+        for key, value in singolo.items():
+            table_rows += f"    <td> {value} </td>\n"
+        table_rows += "</tr>\n"
+
+         '''   
+        table_rows = ""
+        for item in giocatori:
+            table_rows += "<tr>\n"
+            for key, value in item.items():
+                table_rows += f"    <td> {value} </td>\n"
+            table_rows += "</tr>\n"
+    return render_template('cercaSquadra.html',team=team,table_rows=table_rows)
