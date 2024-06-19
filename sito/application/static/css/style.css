@@ -253,6 +253,9 @@ footer {
 .dropdown-container {
     text-align: center;
     margin-top: 20px;
+    color: white;
+    padding-right: 10px;
+    font-size: 20px;
 }
 
 /*
@@ -261,4 +264,45 @@ non so se si deve mettere l'id del form in cui è posizionato
 select {
     font-size: 18px;
     padding: 5px;
+}
+.wrapper {
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+    height: 100vh;
+}
+.centered-container {
+    
+    padding-top: 20px;
+    width: 75%;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.centered-container h2 {
+    text-align: center;
+    margin-top: 0;
+}
+.centered-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+.centered-container ul li {
+    padding: 5px 0;
+}
+.centered-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.centered-container table, .centered-container th, .centered-container td {
+    border: 1px solid #ddd;
+}
+.centered-container th, .centered-container td {
+    padding: 8px;
+    text-align: left;
+}
+.centered-container th {
+    background-color: #f4f4f4;
 }

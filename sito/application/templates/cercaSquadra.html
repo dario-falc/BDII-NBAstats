@@ -5,7 +5,7 @@
 {% block content %}
 <div class="dropdown-container">
     <form action="/cercaSquadra2" method="post">
-        <label for="players-dropdown">Select a Team: </label>
+        <label for="players-dropdown" >Select a Team: </label>
             <select id="players-dropdown" name="team">
                 <option value="ATL">Atlanta Hawks</option>
                 <option value="BOS">Boston Celtics</option>
@@ -45,7 +45,53 @@
 
     {% if team %}
         {% for t in team %}
-        <h1>Selected team: {{ t.abbrevetion }}</h1>
+        <div class="wrapper">    
+            <div class="centered-container">    
+                <h2>{{t.city}} {{t.nickname}}</h2>
+                <ul>
+                    <li>Abbreviazione: {{ t.abbreviation }}</li>
+                    <li>Anno di fondazione: {{t.yearfounded}}</li>
+                    <li>Città: {{t.city}}</li>
+                    <li>Stato: {{t.state}}</li>
+                    <li>Conference: {{t.conference}}</li>
+                    <li>Arena: {{t.arena}}</li>
+                    <li>Proprietario: {{t.owner}}</li>
+                    <li>Capo Coach: {{t.headcoach}}</li>
+                    <li>General Manager: {{t.generalmanager}}</li>
+                    <li>Squadra affiliata nella G-League: {{t.dleagueaffiliation}}</li>
+                    <li>Facebook: {{t.facebook}}</li>
+                    <li>Instagram: {{t.instagram}}</li>
+                    <li>Twitter: {{t.twitter}}</li>
+                    
+                </ul>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Colonna 1</th>
+                            <th>Colonna 2</th>
+                            <th>Colonna 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dato 1.1</td>
+                            <td>Dato 1.2</td>
+                            <td>Dato 1.3</td>
+                        </tr>
+                        <tr>
+                            <td>Dato 2.1</td>
+                            <td>Dato 2.2</td>
+                            <td>Dato 2.3</td>
+                        </tr>
+                        <tr>
+                            <td>Dato 3.1</td>
+                            <td>Dato 3.2</td>
+                            <td>Dato 3.3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>   
         {% endfor %}
     {% endif %}
 {% endblock %}
