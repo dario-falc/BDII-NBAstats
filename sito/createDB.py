@@ -36,13 +36,16 @@ def insert_teams(col_teams):
     western = ["OKC", "DEN", "MIN", "LAC", "DAL", "PHX", "NOP", "LAL", "SAC", "GSW", "HOU", "UTA", "MEM", "SAS", "POR"]
 
     conference = list()
-    for index, row in teams_df.iterrows():
+    for _ , row in teams_df.iterrows():
         conference.append("East" if row["abbreviation"] in eastern else "West")
 
     teams_df.insert(loc=6, column="conference", value=conference)
 
     ## Rimozione colonne inutili
     teams_df = teams_df.drop(["team_id", "arenacapacity"], axis=1)
+    
+    ## Cambio yearfounded da double a int
+    teams_df["yearfounded"] = teams_df["yearfounded"].astype(int)
     
     ## Inserimento dati
     for _ , row in teams_df.iterrows():
