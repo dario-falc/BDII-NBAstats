@@ -202,4 +202,8 @@ def cercaSquadra2():
         print(selected_team)
         team = teams_collection.find({"abbreviation": selected_team})
         
+        players=list(qu.find_players_from_team(client,team[0]))
+        for p in players:
+                print(p)
+        
     return render_template('cercaSquadra.html',team=team)
