@@ -260,3 +260,9 @@ def cercaSquadra2():
                 table_rows += f"    <td> {value} </td>\n"
             table_rows += "</tr>\n"
     return render_template('cercaSquadra.html',team=team,table_rows=table_rows)
+
+@app.route('/query')
+def querymix(): 
+    
+    
+    return render_template('query.html')

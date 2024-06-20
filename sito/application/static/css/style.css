@@ -306,3 +306,60 @@ select {
 .centered-container th {
     background-color: #f4f4f4;
 }
+
+.container{
+    background-color: rgb(0, 0, 91);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+}
+
+.container h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.container .form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.container label {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    flex: 1;
+    margin-right: 10px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.container input[type="text"],
+.container input[type="number"] {
+    flex: 2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.container button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.container button:hover {
+    background-color: #0056b3;
+}
