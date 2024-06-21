@@ -14,7 +14,7 @@
                                         <select id="queryType" onchange="showQueryForm()">
                                             <option value="query_delete">Query Delete</option>
                                             <option value="query_insert_player">Query Insert Player</option>
-                                            <option value="query_update_age">Query Update</option>
+                                            <option value="query_update">Query Update</option>
                                         
                                         </select>
                                     </label>
@@ -34,30 +34,71 @@
                                             
                                             </div>
                                         <br/>
-                                            <div id="query_update_age_form" style="display: none;">
-                                            <h1 >Digita il nome dell'oggetto di cui vuoi modificare gli anni</h1>
-                                            <form action="/query_update_age" method="POST">
-                                                <label for="nome_oggetto">Nome Oggetto:</label>
-                                                <input type="text" id="nome_oggetto" name="nome_oggetto" required><br><br>
-                                                
-                                                <label for="nuovo_pts">Nuovi Anni:</label>
-                                                <input type="number" id="nuovo_age" name="nuovo_age" required><br><br>
-                                                
-                                                <button type="submit">Esegui Query</button>
-                                            </form>
+                                            <div class="container" id="query_update_form" style="display: none;">
+                                                <h1 >Digita il nome e la squadra del giocatore che vuoi modificare</h1>
+                                                    <form action="/query_update" method="POST">
+                                                        <div class="form-group">
+                                                            <label for="name">Nome Giocatore:</label>
+                                                            <input type="text" id="name" name="name" required><br><br>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="tm">Squadra Abbreviazione:</label>
+                                                            <input type="text" id="tm" name="tm" required><br><br>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="car">Caratteristica da modificare:</label>
+                                                          
+                                                       
+                                                            <select id="caratteristica_player" name="scelta_Car">
+                                                                <option value="Pos">Posizione</option>
+                                                                <option value="Age">Età</option>
+                                                                <option value="G">Partite giocate</option>
+                                                                <option value="MP">Minuti giocati </option>
+                                                                <option value="FG">Tiri dal campo realizzati</option>
+                                                                <option value="FGA">Tiri dal campo tentati</option>
+                                                                <option value="FG%">Percentuale tiri dal campo realizzati</option>
+                                                                <option value="3P">Tiri da 3 realizzati</option>
+                                                                <option value="3PA">Tiri da 3 tentati</option>
+                                                                <option value="3P%">Percentuale tiri da 3 realizzati</option>
+                                                                <option value="2P">Tiri da 2 realizzati</option>
+                                                                <option value="2PA">Tiri da 2 tentati </option>
+                                                                <option value="2P%">Percentuale tiri da 2 realizzati</option>
+                                                                <option value="eFG%">Percentuale di tiri dal campo efficiente</option>
+                                                                <option value="FT">Tiri liberi realizzati</option>
+                                                                <option value="FTA">Tiri liberi tentati </option>
+                                                                <option value="FT%">Percentuale tiri liberi realizzati</option>
+                                                                <option value="ORB">Rimbalzi offensivi</option>
+                                                                <option value="DRB">Rimbalzi difensivi</option>
+                                                                <option value="TRB">Rimbalzi totali </option>
+                                                                <option value="AST%">Assist</option>
+                                                                <option value="STL">Rubate</option>
+                                                                <option value="BLK">Stoppate</option>
+                                                                <option value="PF">Falli fatti</option>
+                                                                <option value="PTS">Punti</option>
+                                                                <option value="UTA">Utah Jazz</option>
+                                                                <option value="MEM">Memphis Grizzlies</option>
+                                                                 
+                                                            </select>
+                                                             </div>
+                                                             <div class="form-group">
+                                                                <label for="val">Valore Aggiornato:</label>
+                                                                <input type="text" id="val" name="val" required><br><br>
+                                                            </div>
+                                                            <button type="submit">Esegui Query</button>
+                                                    </form>
                                             </div>
 
                                         
                                             <div class="container" id="query_insert_player_form" style="display: none;">
                                             <h1 >Inserisci un nuovo giocatore </h1>
                                             <form action="/query_insert" method="post">
-                                                <div class="form-group">
+                                               <!---- <div class="form-group">
                                                     <label for="_id">ID:</label>
                                                     <input type="number" id="id" name="id" required>
-                                                </div>
+                                                </div>-->
                                                 <div class="form-group">
-                                                    <label for="player_name">Nome del giocatore:</label>
-                                                    <input type="text" id="player_name" name="player_name" required>
+                                                    <label for="name">Nome del giocatore:</label>
+                                                    <input type="text" id="name" name="name" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="pos">Posizione:</label>
@@ -68,8 +109,8 @@
                                                     <input type="number" id="age" name="age" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="team_abbreviation">Abbreviazione squadra:</label>
-                                                    <input type="text" id="team_abbreviation" name="team_abbreviation" required>
+                                                    <label for="tm">Abbreviazione squadra:</label>
+                                                    <input type="text" id="tm" name="tm" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="g">Partite giocate:</label>
@@ -157,11 +198,11 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="pf">Falli fatti:</label>
-                                                    <input type="number" id="pf" name="pf" required>
+                                                    <input type="number" id="pf" name="pf" step="0.1" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="pts">Punti:</label>
-                                                    <input type="number" id="pts" name="pts" required>
+                                                    <input type="number" id="pts" name="pts" step="0.1" required>
                                                 </div>
                                                 <button type="submit">Esegui Query</button>
                                             </form>
@@ -169,22 +210,7 @@
                                         
                                     
                                 </div>
-                                <br />
-                                <div id="query_update_height_weight_form" style="display: none;">
-                                    <h1 >Digita il nome dell'oggetto di cui vuoi modificare gli anni</h1>
-                                    <form action="/query_update_height_weight" method="POST">
-                                        <label for="nome_oggetto">Nome Oggetto:</label>
-                                        <input type="text" id="nome_oggetto" name="nome_oggetto" required><br><br>
-                                        
-                                        <label for="nuovo_height">Nuova Altezza:</label>
-                                        <input type="number" id="nuovo_height" name="nuovo_height" required><br><br>
-                                        <label for="nuovo_weight">Nuova Peso:</label>
-                                        <input type="number" id="nuovo_weight" name="nuovo_weight" required><br><br>
-                                        
-                                        <button type="submit">Esegui Query</button>
-                                    </form>
-                                </div>
-                              
+                                                          
 
                                 <script>
                                 var lastSelectedOption = null;

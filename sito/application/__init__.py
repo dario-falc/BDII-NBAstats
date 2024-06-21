@@ -266,3 +266,60 @@ def querymix():
     
     
     return render_template('query.html')
+
+@app.route('/query_insert', methods=['POST'])
+def insert_giocatore():
+    nuovo_oggetto = {}
+    
+    nuovo_oggetto["Name"] = request.form.get('name')
+    nuovo_oggetto["Tm"] = request.form.get('tm')
+    nuovo_oggetto["Pos"] = request.form.get('pos')
+    
+    nuovo_oggetto["Age"] = int(request.form.get('age'))
+    nuovo_oggetto["G"] = int(request.form.get('g'))
+    
+    nuovo_oggetto["MP"] = float(request.form.get('mp'))
+    nuovo_oggetto["FG"] = float(request.form.get('fg'))
+    nuovo_oggetto["FGA"] = float(request.form.get('fga'))
+    nuovo_oggetto["FG%"] = float(request.form.get('fgp'))
+    nuovo_oggetto["3P"] = float(request.form.get('3p'))
+    nuovo_oggetto["3PA"] = float(request.form.get('3pa'))
+    nuovo_oggetto["3P%"] = float(request.form.get('3pp'))
+    nuovo_oggetto["2P"] = float(request.form.get('2p'))
+    nuovo_oggetto["2PA"] = float(request.form.get('2pa'))
+    nuovo_oggetto["2P%"] = float(request.form.get('2pp'))
+    nuovo_oggetto["eFG%"] = float(request.form.get('efg'))
+    nuovo_oggetto["FT"] = float(request.form.get('ft'))
+    nuovo_oggetto["FTA"] = float(request.form.get('fta'))
+    nuovo_oggetto["FT%"] = float(request.form.get('ftp'))
+    nuovo_oggetto["ORB"] = float(request.form.get('orb'))
+    nuovo_oggetto["DRB"] = float(request.form.get('drb'))
+    nuovo_oggetto["TRB"] = float(request.form.get('trb'))
+    nuovo_oggetto["AST"] = float(request.form.get('ast'))
+    nuovo_oggetto["STL"] = float(request.form.get('stl'))
+    nuovo_oggetto["BLK"] = float(request.form.get('blk'))
+    nuovo_oggetto["PF"] = float(request.form.get('pf'))
+    nuovo_oggetto["PTS"] = float(request.form.get('pts'))
+
+    print(nuovo_oggetto)
+
+    result=qu.inserimento_giocatore(client, nuovo_oggetto)
+    return render_template('query.html',result=result)
+
+@app.route('/query_update', methods=['POST'])
+def update_giocatore():
+    mod_oggetto = {}
+    mod_oggetto["Name"] = request.form.get('name')
+    mod_oggetto["Tm"] = request.form.get('tm')
+
+    car_scelta = request.form['scelta_Car']
+    print(car_scelta)
+    if car_scelta == 'Name' or car_scelta == 'Tm' or car_scelta == 'Pos':
+         mod_oggetto[car_scelta] = request.form.get('val')
+    elif car_scelta == 'Age' or  car_scelta == 'G':
+         mod_oggetto[car_scelta] = int(request.form.get('val'))
+    else:
+        mod_oggetto[car_scelta] = float(request.form.get('val'))  
+
+    result=qu.modifica_giocatore(client,mod_oggetto)
+    return render_template('query.html',result=result)

@@ -61,16 +61,20 @@ def inserimento_giocatore(client, player):
     col_teams = client["BDII-NBAstats"]["Teams"]
     
     col_players.insert_one(player)
-    
     col_teams.update_one( { "abbreviation" : player["Tm"] }, { "$push" : { "Players" : player["_id"] } } )
-
+    giocatore_creato=col_players.find_one({"id": player["_id"]})
+    return giocatore_creato
+    
 
 def modifica_giocatore(client, player):
+
     col_players = client["BDII-NBAstats"]["Players"]
     
     for key, value in player.items():
+        print(key," ", value)
         col_players.update_one( { "Name" : player["Name"], "Tm" : player["Tm"] }, { "$set" : { key : value } } )
-
+    giocatore_mod=col_players.find_one({"Name": player["Name"], "Tm" : player["Tm"]})
+    return giocatore_mod
 
 def rimozione_giocatore(client, player):
     col_players = client["BDII-NBAstats"]["Players"]
