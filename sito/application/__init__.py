@@ -323,3 +323,13 @@ def update_giocatore():
 
     result=qu.modifica_giocatore(client,mod_oggetto)
     return render_template('query.html',result=result)
+
+@app.route('/query_delete', methods=['POST'])
+def delete_giocatore():
+    del_oggetto = {}
+    del_oggetto["Name"] = request.form.get('name')
+    
+
+    
+    result=qu.rimozione_giocatore(client,del_oggetto)
+    return render_template('query.html',result=result)

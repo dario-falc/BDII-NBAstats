@@ -24,11 +24,13 @@
                                 
                                         
                                         <br/>
-                                            <div id="query_delete_form" style="display: none;">
+                                            <div class="container" id="query_delete_form" style="display: none;">
                                                 <h1>Cancellazione Oggetto</h1>
                                                 <form action="/query_delete" method="post">
-                                                    <label for="id_oggetto">ID Oggetto che vuoi cancellare:</label>
-                                                    <input type="text" id="id_oggetto" name="id_oggetto" required><br><br>
+                                                    <div class="form-group">
+                                                        <label for="name">Nome Giocatore:</label>
+                                                        <input type="text" id="name" name="name" required><br><br>
+                                                    </div>
                                                     <button type="submit">Esegui Query</button>
                                                 </form>
                                             
