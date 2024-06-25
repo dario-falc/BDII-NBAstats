@@ -123,9 +123,6 @@ def embed_teams_in_games(col_teams, col_games):
     teams["abbreviations"] = team_abbreviations
     teams["_ids"] = team_ids
 
-    # Prendo tutte le partite
-    games = col_games.find()
-
     # Per ogni coppia abbreviazione-id nel dizionario creato
     for team_abbr, team_id in zip(teams["abbreviations"], teams["_ids"]):
         # Se team_abbr è la squadra in casa, aggiunge un campo chiamato "team_id_home" con valore "team_id"
