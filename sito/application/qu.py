@@ -9,7 +9,7 @@ def vittorie_tot(client):
             "team_id" : {
                 "$cond" : { "if" : { "$eq" : [ "$winner", "Home" ] }, "then" : "$team_id_home" , "else" : "$team_id_away" }
                 },
-                "team_name" : {
+            "team_name" : {
                 "$cond" : { "if" : { "$eq" : [ "$winner", "Home" ] }, "then" : "$team_name_home" , "else" : "$team_name_away" }
                 }
 
