@@ -15,13 +15,13 @@
     </div> 
     <div class="parent-container">
         <div class="text-content">
-            <!-- se vogliamo scrivere qualcosa sopra i bottoni va qua-->>
+            <!-- se vogliamo scrivere qualcosa sopra i bottoni va qua-->
         </div>
             <div class="button-container">
-                <button class="nav-btn" onclick="location.href='{{ url_for('classificaEst') }}'">Campionato di Est</button>
-                <button class="nav-btn" onclick="location.href='{{ url_for('classificaOvest') }}'">Campionato di Ovest</button>
-                <button class="nav-btn" onclick="location.href='{{ url_for('cercaSquadra') }}'">Cerca Squadra</button>
-                <button class="nav-btn" onclick="location.href='{{url_for('listPlayer')}}'">Lista Giocatori</button>
+                <button class="nav-btn" onclick="location.href='{{ url_for('classificaEst') }}'">EASTERN CONFERENCE</button>
+                <button class="nav-btn" onclick="location.href='{{ url_for('classificaOvest') }}'">WESTERN CONFERENCE</button>
+                <button class="nav-btn" onclick="location.href='{{ url_for('cercaSquadra') }}'">TEAM SEARCH</button>
+                <button class="nav-btn" onclick="location.href='{{url_for('listPlayer')}}'">PLAYER LIST</button>
             </div>
     </div>
 {% endblock %}

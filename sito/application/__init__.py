@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 
 ## Setup mongo
-
+ #recuperiamo i dati dalla collezione
 client = MongoClient('mongodb://localhost:27017/')
 db = client['BDII-NBAstats'] 
 players_collection = db['Players']
@@ -18,9 +18,7 @@ teams_collection = db['Teams']
 @app.route('/') #url dinamico
 def index():
     
-    #recuperiamo i dati dalla collezione
     
-   
     return render_template('index.html')
 
 
@@ -78,8 +76,7 @@ def classificaEst():
     for team in teamsEast:
         singolo = {"Nome": None, "VittorieTot": None, "SconfitteTot": None, "PercVittore": None, "RisultCasa": None, "RisultTrans": None}
         for res in result:
-            #print(team["_id"])
-            #print(res["_id"]["team_id"],"\n")
+            
                 
             if team["_id"] == res["_id"]["team_id"]:               
                 tutto["_id"] = res["_id"]["team_id"]
@@ -91,10 +88,7 @@ def classificaEst():
                 percentualeVit = temp/82
                 percentualeForm = f"{percentualeVit:.3f}"
                 singolo["PercVittore"] = percentualeForm
-                #print("singolo(nome):   ",singolo["Nome"])
-                #print("singolo(vittorietot):   ",singolo["VittorieTot"])    
-                #print("singolo(sconfittetot):   ",singolo["SconfitteTot"])
-                #print("singolo(percentuale):    ",singolo["PercVittore"])                         
+                                       
                 break   
             
         for res in result2: 
@@ -102,30 +96,22 @@ def classificaEst():
                 temp1 = res["games_won"]
                 temp2 = res["games_lost"]
                 singolo["RisultCasa"] = f"{temp1}-{temp2}"
-                #print("singolo(casa): ",singolo["RisultCasa"])
+               
                 break
 
         for res in result3:
-            ''' print(team["_id"])
-             print(res["_id"],"\n")'''
+            
             if team["_id"] == res["_id"]:
                 temp1 = res["games_won"]
                 temp2 = res["games_lost"]
                 singolo["RisultTrans"] = f"{temp1}-{temp2}"
-                #print("singolo(transf): ",singolo["RisultTrans"])
+                
                 break
      
-        #print(singolo)
+        
         tutto["valori"].append(singolo)
    
-    #for item in tutto['valori']:
-    #    for key, value in item.items():
-    #        print(f'Chiave: {key}, Valore: {value}')
-    #    print()
-    
-    
-    #print(tutto)
-
+  
     # Ordiniamo la lista di dizionari dentro la chiave 'valori' in base a 'VittorieTot'
     tutto["valori"] = sorted(tutto["valori"], key=lambda x: x["VittorieTot"], reverse=True)
     
